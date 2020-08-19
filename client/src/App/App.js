@@ -34,6 +34,8 @@ import Header from '../header_footer/Header.js';
 // For checking token
 const jwt = require('jsonwebtoken');
 const secret = "this is temporary";
+// const domain = "/programming-for-kids"
+const domain = ""
 
 class App extends Component {
   state = {
@@ -68,9 +70,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Router basename="/programming-for-kids">
         <Header studentLoggedIn={this.state.loggedIn === "student"}
           teacherLoggedIn={this.state.loggedIn === "teacher"} />
-        <Router >
           {/* This component handles conditional rendering of different home
               screens based on who is logged in. TeacherHome for teacher,
               HomeScreen for student, LoginMenu for none */}

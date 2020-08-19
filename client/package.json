@@ -2,6 +2,7 @@
   "name": "programming-for-kids",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://croysdale.net/programming-for-kids",
   "proxy": "http://localhost:5000/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
