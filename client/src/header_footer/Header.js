@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Menu, MenuDivider, MenuItem, Popover, Position } from "@blueprintjs/core";
+import { Button, Menu, MenuDivider, MenuItem, Popover, Position, ButtonGroup } from "@blueprintjs/core";
+import { Link } from 'react-router-dom';
 
 const jwt = require('jsonwebtoken');
 const secret = "this is temporary";
@@ -11,9 +12,11 @@ class Header extends Component {
         username: '',
     }
 
-    logOut = () => {
-        // alert("Logged out of account");
-        localStorage.setItem('nccjwt', '');
+    logOut = (loggedOut) => {
+        if (!loggedOut) {
+            // alert("Logged out of account");
+            localStorage.setItem('nccjwt', '');
+        }
     }
 
     checkTokenMenu = () => {
@@ -70,34 +73,52 @@ class Header extends Component {
         const popMenu = (
             <Menu >
                 <this.usernameMessage/>
-                <MenuItem icon="home"
-                    text="Home"
-                    href={"/"}
-                    disabled={loggedOut}
-                />
-                <MenuItem icon="book"
-                    text={teacher ? "Manage Lessons" : "Lessons"}
-                    href={teacher ? "/ManageLessons" : "/LessonMenu"}
-                    disabled={loggedOut}
-                />
-                <MenuItem
-                    icon={"clipboard"}
-                    text={teacher ? "Manage Students" : "Grades"}
-                    href={teacher ? "/ManageStudents" : "/Grades"}
-                />
+                <ButtonGroup vertical>
+                    {/* <Button> */}
+                        <Link to="/" >
+                            <MenuItem icon="home"
+                                text="Home"
+                                // href={"/"}
+                                disabled={loggedOut}
+                            />
+                        </Link>
+                    {/* </Button>
+                    <Button>  */}
+                        <Link to={teacher ? "/ManageLessons" : "/LessonMenu"} >
+                        <MenuItem icon="book"
+                            text={teacher ? "Manage Lessons" : "Lessons"}
+                            // href={teacher ? "/ManageLessons" : "/LessonMenu"}
+                            disabled={loggedOut}
+                        />
+                    </Link> 
+                    {/* </Button> */}
+                    {/* <Button>  */}
+                        <Link to={teacher ? "/ManageStudents" : "/Grades"} >
+                        <MenuItem
+                            icon={"clipboard"}
+                            text={teacher ? "Manage Students" : "Grades"}
+                            // href={teacher ? "/ManageStudents" : "/Grades"}
+                            disabled={loggedOut}
+                        />
+                    </Link>
+                     {/* </Button> */}
+                </ButtonGroup>
                 <MenuDivider />
                     {/* TODO add Settings*/}
                 {/* <MenuItem disabled icon="cog" text="Settings">
                     <MenuItem text="option coming soon" />
                 </MenuItem>
                 <MenuDivider /> */}
-                <MenuItem
-                    text={loggedOut ? "Log In" : "Log Out"}
-                    intent={loggedOut ? "success" : "danger"}
-                    icon={loggedOut ? "log-in" : "log-out"}
-                    href={loggedOut ? "/login" : "/"}
-                    onClick={() => loggedOut ? this.logIn() : this.logOut()}
-                />
+
+                <Link to = {loggedOut ? "/login" : "/"} >
+                    <MenuItem
+                        text={loggedOut ? "Log In" : "Log Out"}
+                        intent={loggedOut ? "success" : "danger"}
+                        icon={loggedOut ? "log-in" : "log-out"}
+                        // href={loggedOut ? "/login" : "/"}
+                        onClick={() => this.logOut(loggedOut) }
+                    />
+                </Link>
             </Menu>
         );
 
