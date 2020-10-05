@@ -4,9 +4,12 @@ import { Button, ButtonGroup } from "@blueprintjs/core";
 import '../../CSS_files/App.css';
 import '../../CSS_files/Body.css';
 
-import "../../../../node_modules/normalize.css";
-import "../../../../node_modules/@blueprintjs/core/lib/css/blueprint.css";
-import "../../../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css";
+// import "../../../../node_modules/normalize.css";
+// import "../../../../node_modules/@blueprintjs/core/lib/css/blueprint.css";
+// import "../../../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css";
+import "normalize.css";
+import "@blueprintjs/core/lib/css/blueprint.css";
+import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 
 class TeacherHome extends Component {
   render() {

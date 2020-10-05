@@ -1,33 +1,49 @@
 {
   "name": "programming-for-kids",
   "version": "0.1.0",
-  "scripts": {
-    "client": "cd client && npm start",
-    "server": "nodemon server.js localhost 5000",
-    "dev": "npm-run-all --parallel client server"
-  },
+  "private": true,
+  "proxy": "http://localhost:5000/",
   "dependencies": {
-    "@blueprintjs/core": "^3.23.1",
-    "bcrypt": "^4.0.1",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "image-data-uri": "^2.0.1",
+    "@blueprintjs/core": "^3.33.0",
+    "@popperjs/core": "^2.5.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "blockly": "^3.20200924.2",
     "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.3",
+    "minimist": "^1.2.5",
+    "npm": "^6.14.8",
     "otplib": "^12.0.1",
     "qrcode": "^1.4.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-native": "^0.62.2",
-    "react-native-responsive-screen": "^1.4.0",
-    "react-otp-input": "^1.0.1",
-    "react-router-dom": "^5.1.2",
-    "react-spinners": "^0.8.3",
-    "rimraf": "^3.0.2",
-    "sqlite3": "^4.1.1",
-    "uuid": "^7.0.3"
+    "react": "^16.13.1",
+    "react-blockly": "^5.3.0",
+    "react-dom": "^16.13.1",
+    "react-native": "^0.63.3",
+    "react-native-responsive-screen": "^1.4.1",
+    "react-otp-input": "^2.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.3",
+    "react-spinners": "^0.9.0"
   },
-  "devDependencies": {
-    "npm-run-all": "^4.1.5"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
